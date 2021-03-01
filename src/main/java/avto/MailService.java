@@ -19,19 +19,16 @@ public class MailService {
 	 * @param subject
 	 * @param body
 	 */
-	public void sendEmail(Session session, String toEmail, String subject, String body){
+	public void sendEmail(Session session, String subject, String body){
 		try {
-
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("radel.kirgizov.96@bk.ru"));
-            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(toEmail));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("kadil.12353@gmail.com"));
+            // message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse("kadil1.2353@gmail.com"));
+            // message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse("kadil12.353@gmail.com"));
             message.setSubject(subject);
             message.setText(body);
-
             Transport.send(message);
-
-            System.out.println("Done");
-
         } catch (MessagingException e) {
             e.printStackTrace();
         }
