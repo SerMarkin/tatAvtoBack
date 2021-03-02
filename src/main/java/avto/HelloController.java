@@ -8,12 +8,13 @@ import javax.mail.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.converter.xml.SourceHttpMessageConverter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class HelloController {
     @Autowired
     private MailService mailService;
@@ -25,6 +26,7 @@ public class HelloController {
         this.mailService = mailService;
     }
 
+	
     @RequestMapping("/sendEmail")
     public void sendEmail(@RequestParam("body") String body) {
 		final String fromEmail = "radel.kirgizov.96@bk.ru"; //requires valid gmail id

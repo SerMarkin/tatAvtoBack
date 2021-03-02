@@ -24,7 +24,7 @@ public class MailService {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("radel.kirgizov.96@bk.ru"));
             message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("kadil.12353@gmail.com"));
-            // message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse("kadil1.2353@gmail.com"));
+            message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse("konstantinhlopcev0993@gmail.com"));
             // message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse("kadil12.353@gmail.com"));
             message.setSubject(subject);
             message.setText(body);
